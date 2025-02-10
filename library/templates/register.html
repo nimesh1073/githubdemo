@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+  {% block title %}
+    <title>Add Books</title>
+  {% endblock %}
+
+{% block content %}
+<div class="container w-50 mx-auto">
+  <h2 class="text-center mt-3">Register Here</h2>
+  <form method="POST">
+    {% csrf_token %}
+<!--cross site request forgery-->
+  <div class="mb-3 mt-3">
+    <label class="form-label">Username</label>
+    <input type="text" class="form-control" name="u" placeholder="Enter username">
+  </div>
+  <div class="mb-3 mt-3">
+    <label class="form-label">Password</label>
+    <input type="password" class="form-control" name="p" placeholder="Enter Password">
+  </div>
+    <div class="mb-3 mt-3">
+    <label class="form-label">Confirm Password</label>
+    <input type="password" class="form-control" name="p1" placeholder="Re-enter Password">
+  </div>
+    <div class="mb-3 mt-3">
+    <label class="form-label">Email Address</label>
+    <input type="text" class="form-control" name="e" placeholder="Enter your Email Adress">
+  </div>
+  <div class="mb-3 mt-3">
+    <label class="form-label">First Name</label>
+    <input type="text" class="form-control" name="f" placeholder="Enter your First Name">
+  </div>
+  <div class="mb-3 mt-3">
+    <label class="form-label">Last Name</label>
+    <input type="text" class="form-control" name="ln" placeholder="Enter your Last Name">
+  </div>
+    <div class="mb-3 mt-3">
+    <label class="form-label">Phone Number</label>
+    <input type="text" class="form-control" name="ph" placeholder="Enter your Phone number">
+  </div>
+    <div class="mb-3 mt-3">
+    <label class="form-label">Address</label>
+      <textarea class="form-control" name="ad" placeholder="Enter your Address"></textarea>
+  </div>
+        <div class="mb-3 mt-3">
+    <input type="submit" class="btn btn-outline-dark fw-bold">
+  </div>
+  </form>
+  {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+</div>
+{% endblock %}
+
